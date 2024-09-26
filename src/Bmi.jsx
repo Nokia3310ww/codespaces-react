@@ -4,10 +4,24 @@ export default function Bmi(){
     const H_input = useRef(null);
     const BMI = useRef(null);
     function handleClick() {
-        const weight = parseFloat(W_input.current.value);
-        const height = parseFloat(H_input.current.value) / 100; 
-        const bmi = weight / (height * height);
-        alert(`Your BMI is: ${bmi.toFixed(2)}`);
+        let weight = parseFloat(W_input.current.value);
+        let height = parseFloat(H_input.current.value) / 100; 
+        let bmi = weight / (height * height);
+        if( bmi < 18.50 ){
+            alert(`Your BMI is: ${bmi.toFixed(2)} Underweight`);
+        }
+        else if( bmi >= 18.50 && bmi <= 22.90){
+            alert(`Your BMI is: ${bmi.toFixed(2)} Normal `);
+        }
+        else if( bmi >= 23  && bmi <= 24.90){
+            alert(`Your BMI is: ${bmi.toFixed(2)} Obese/Cured Level 1 `);
+        }
+        else if( bmi >=  25 && bmi <= 29.90){
+            alert(`Your BMI is: ${bmi.toFixed(2)} Obese/Cured Level 2 `);
+        }
+        else{
+            alert(`Your BMI is: ${bmi.toFixed(2)} Obese/Cured Level 3 `);
+        }
 
     }
     return(<>
